@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- 🔥 HERO SECTION -->
+<div class="hero">
+
+    <!-- LEFT SIDE -->
+    <div class="hero-left">
+        <h1>
+            <span>Technology</span> is best when <br>
+            it brings people together.
+        </h1>
+
+        <p>
+            {{ banner.description }}
+        </p>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div>
+                <h3>{{ banner.projects }}+</h3>
+                <p>Projects</p>
+            </div>
+
+            <div>
+                <h3>{{ banner.clients }}+</h3>
+                <p>Clients</p>
+            </div>
+
+            <div>
+                <h3>{{ banner.technologies }}+</h3>
+                <p>Technologies</p>
+            </div>
+        </div>
+
+        <!-- BUTTON -->
+        <div class="hero-btn">
+            <a href="{% url 'aboutus' %}">
+                {{ banner.button_text }}
+            </a>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="hero-right">
+        <img src="{{ banner.image.url }}" alt="Banner Image">
+    </div>
+
+</div>
+
+<!-- WHY CHOOSE US SECTION -->
+{% if why %}
+<div class="why-section">
+
+    <!-- LEFT IMAGE -->
+    <div class="why-left">
+        <img src="{{ why.image.url }}" alt="Why Choose Us">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="why-right">
+        <h2>
+            {{ why.heading }}
+            <span>{{ why.highlight_word }}</span>
+            From Others?
+        </h2>
+
+        <div class="why-list">
+            {% for point in why.points.all %}
+            <div class="why-item">
+                <img src="{{ point.icon.url }}" alt="icon">
+                <p>{{ point.title }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+{% endif %}
+
+<!-- 🔥 WORK PROCESS SECTION -->
+{% if work %}
+<div class="work-section">
+
+    <h2>{{ work.heading }}</h2>
+
+    <p>{{ work.description }}</p>
+
+    <div class="work-image">
+        <img src="{{ work.image.url }}" alt="Work Process">
+    </div>
+
+</div>
+{% endif %}
+
+<!-- 🔥 TESTIMONIAL SECTION -->
+<div class="testimonial-section">
+
+    <h2>
+        Our <span>Client Testimonial</span>
+    </h2>
+
+    <p>
+        What Our Customers Are Saying. Hear from the people who trust us to deliver
+        excellence every time.
+    </p>
+
+    <div class="testimonial-grid">
+
+        {% for t in testimonials %}
+        <div class="testimonial-card">
+
+            <div class="user">
+                <img src="{{ t.image.url }}" alt="user">
+                <h4>{{ t.name }}</h4>
+            </div>
+
+            <p>"{{ t.review }}"</p>
+
+            <div class="stars">
+                {% for i in "12345"|slice:":t.rating" %}
+                ★
+                {% endfor %}
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- OUR PROJECTS SECTION -->
+<div class="project-section">
+
+    <h2>
+        Our <span>Projects</span>
+    </h2>
+
+    <div class="project-grid">
+
+        {% for project in projects %}
+        <div class="project-card">
+            <img src="{{ project.image.url }}" alt="project">
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- FAQ SECTION -->
+<div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <p>We aim to provide clarity and transparency, ensuring you feel confident at every stage of your journey.
+        If you have further questions, please don't hesitate to contact us directly!.
+    </p>
+
+    <div class="faq">
+        {% for faq in faqs %}
+        <div class="faq-item">
+            <div class="faq-question">
+                {{ faq.question }}
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>{{ faq.answer }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <p>No FAQs available.</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="about-container">
+
+    <!-- LEFT SIDE TEXT -->
+    <div class="about-text">
+        <h1>About Us</h1>
+        <p>
+            Vetri IT Systems is a dynamic IT solutions provider, specializing in cutting-edge technology services. We
+            deliver innovative software development, IT consulting, and digital transformation solutions tailored to
+            meet diverse business needs. Committed to excellence, we empower organizations with reliable, scalable, and
+            cost-effective technology solutions.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="about-image">
+        {% if about %}
+        <img src="{{ about.image.url }}" alt="About Us">
+        {% endif %}
+    </div>
+
+</div>
+
+<!-- VISION & MISSION SECTION -->
+<div class="vm-container">
+
+    <!-- VISION -->
+    <div class="vm-card">
+        {% if vm_images.0 %}
+        <div class="vm-icon">
+            <img src="{{ vm_images.0.image.url }}" alt="Vision">
+        </div>
+        {% endif %}
+        <h2>Our <span>Vision</span></h2>
+        <p>
+            To be a globally recognized leader in delivering innovative IT solutions
+            that transform businesses and create a sustainable impact. We envision
+            a future where technology empowers organizations to achieve success.
+        </p>
+    </div>
+
+    <!-- MISSION -->
+    <div class="vm-card">
+        {% if vm_images.1 %}
+        <div class="vm-icon">
+            <img src="{{ vm_images.1.image.url }}" alt="Mission">
+        </div>
+        {% endif %}
+        <h2>Our <span>Mission</span></h2>
+        <p>
+            Our mission is to harness the power of technology to help businesses
+            grow and succeed. We provide innovative, reliable, and scalable
+            solutions that enhance productivity and customer satisfaction.
+        </p>
+    </div>
+
+</div>
+
+
+{% endblock %}

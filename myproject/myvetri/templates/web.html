@@ -1,0 +1,539 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .web-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .web-text {
+        width: 50%;
+    }
+
+    .web-text h2 {
+        font-size: 35px;
+    }
+
+    .web-text span {
+        color: #1e63ff;
+    }
+
+    .web-text p {
+        margin-top: 20px;
+        line-height: 1.7;
+        color: #555;
+    }
+
+    .web-image {
+        width: 50%;
+    }
+
+    .web-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* STAGES SECTION STYLES */
+    .stage-section {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        /* 5 equal columns */
+        gap: 20px;
+        padding: 40px;
+    }
+
+    .stage-card {
+        background: #c2cce1;
+        padding: 25px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        margin-top: 0px;
+    }
+
+    .stage-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stage-card img {
+        width: 60px;
+        margin-bottom: 15px;
+    }
+
+    .stage-card h3 {
+        font-size: 18px;
+        color: #333;
+    }
+
+    @media (max-width: 992px) {
+        .stage-section {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .stage-section {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* STATIC SECTION STYLES*/
+    .static-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+        background: #f9fbff;
+    }
+
+    .static-text {
+        width: 50%;
+    }
+
+    .static-text h2 {
+        font-size: 35px;
+    }
+
+    .static-text span {
+        color: #1e63ff;
+    }
+
+    .static-text p {
+        margin-top: 20px;
+        line-height: 1.7;
+        color: #555;
+    }
+
+    .static-image {
+        width: 50%;
+    }
+
+    .static-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 768px) {
+        .static-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .static-text,
+        .static-image {
+            width: 100%;
+        }
+    }
+
+    /* 🔥 DYNAMIC SECTION STYLES  */
+    .dynamic-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+        background: #ffffff;
+    }
+
+    .dynamic-image {
+        width: 50%;
+    }
+
+    .dynamic-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .dynamic-text {
+        width: 50%;
+    }
+
+    .dynamic-text h2 {
+        font-size: 35px;
+    }
+
+    .dynamic-text span {
+        color: #1e63ff;
+    }
+
+    .dynamic-text p {
+        margin-top: 20px;
+        line-height: 1.7;
+        color: #555;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 768px) {
+        .dynamic-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .dynamic-image,
+        .dynamic-text {
+            width: 100%;
+        }
+    }
+
+    /* 🔥 E-COMMERCE SECTION */
+    .ecommerce-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+        background: #fff;
+    }
+
+    .ecommerce-text {
+        width: 50%;
+    }
+
+    .ecommerce-text h2 {
+        font-size: 35px;
+    }
+
+    .ecommerce-text span {
+        color: #1e63ff;
+    }
+
+    .ecommerce-text p {
+        margin-top: 20px;
+        line-height: 1.7;
+        color: #555;
+    }
+
+    .ecommerce-image {
+        width: 50%;
+    }
+
+    .ecommerce-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 768px) {
+        .ecommerce-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .ecommerce-text,
+        .ecommerce-image {
+            width: 100%;
+        }
+    }
+
+    /* 🔥 PLANS SECTION STYLES */
+    .plan-section {
+        padding: 60px 50px;
+        text-align: center;
+    }
+
+    .plan-section h2 {
+        font-size: 32px;
+        margin-bottom: 50px;
+    }
+
+    .plan-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .plan-card {
+        width: 300px;
+        background: #d5dceb;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 30px;
+        transition: 0.3s;
+    }
+
+    .plan-card:hover {
+        transform: translateY(-8px);
+    }
+
+    /* TOP CURVE */
+    .plan-header {
+        background: #1e63ff;
+        height: 140px;
+        border-bottom-left-radius: 150px;
+        border-bottom-right-radius: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    /* 💰 PRICE CIRCLE */
+    .price-circle {
+        width: 90px;
+        height: 90px;
+        background: #79c4d3;
+        border-radius: 50%;
+        position: absolute;
+        top: 95px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    /* 📋 FEATURES */
+    .plan-features {
+        margin-top: 70px;
+        text-align: left;
+        padding: 0 30px;
+    }
+
+    .plan-features li {
+        margin: 10px 0;
+        list-style: none;
+    }
+
+    /* 🔘 BUTTON */
+    .plan-btn {
+        margin-top: 20px;
+        display: inline-block;
+        background: #1e63ff;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+    }
+</style>
+
+<div class="web-section">
+
+    <!-- LEFT TEXT -->
+    <div class="web-text">
+        <h2>
+            <span>Web</span> Development
+        </h2>
+
+        <p>
+            {{ web_data.description }}
+        </p>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="web-image">
+        {% if web_data %}
+        <img src="{{ web_data.image.url }}" alt="Web Development">
+        {% endif %}
+    </div>
+
+</div>
+
+<div class="stage-section">
+
+    {% for stage in stages %}
+    <div class="stage-card">
+
+        <!-- IMAGE FROM ADMIN -->
+        <img src="{{ stage.image.url }}" alt="stage">
+
+        <!-- STATIC TITLES -->
+        {% if forloop.counter == 1 %}
+        <h3>Requirement Stage</h3>
+        {% elif forloop.counter == 2 %}
+        <h3>Design Stage</h3>
+        {% elif forloop.counter == 3 %}
+        <h3>Development Stage</h3>
+        {% elif forloop.counter == 4 %}
+        <h3>Testing Stage</h3>
+        {% elif forloop.counter == 5 %}
+        <h3>Deployment Stage</h3>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+
+</div>
+
+<!-- 🔥 NEW STATIC SECTION -->
+<div class="web-section">
+
+    <!-- LEFT TEXT (STATIC) -->
+    <div class="web-text">
+        <h2><span>Static</span> Website</h2>
+
+        <p>
+            A static website is a simple and reliable solution for service-based projects. It delivers content quickly
+            without relying on databases or dynamic processing. Ideal for portfolios, company profiles, or informational
+            pages, it ensures fast performance and low maintenance costs.
+        </p>
+    </div>
+
+    <!-- RIGHT IMAGE (FROM ADMIN) -->
+    <div class="web-image">
+        {% if static_section %}
+        <img src="{{ static_section.image.url }}" alt="Static Website Image">
+        {% endif %}
+    </div>
+
+</div>
+
+<!-- 🔥 DYNAMIC SECTION (IMAGE LEFT - TEXT RIGHT) -->
+<div class="dynamic-section">
+
+    <!-- LEFT IMAGE -->
+    <div class="dynamic-image">
+        {% if dynamic_section %}
+        <img src="{{ dynamic_section.image.url }}" alt="Dynamic Image">
+        {% endif %}
+    </div>
+
+    <!-- RIGHT TEXT (STATIC) -->
+    <div class="dynamic-text">
+        <h2><span>Why</span> Choose Us</h2>
+
+        <p>
+            A dynamic website is an interactive platform that updates content in real time based on user inputs or
+            actions. It uses databases and server-side scripting to deliver personalized experiences, making it ideal
+            for service projects like user portals, e-commerce sites, or dashboards. Dynamic websites enhance engagement
+            and provide scalable, efficient solutions for modern businesses.
+        </p>
+    </div>
+
+</div>
+<!-- 🔥 E-COMMERCE SECTION -->
+<div class="ecommerce-section">
+
+    <!-- LEFT TEXT -->
+    <div class="ecommerce-text">
+        <h2><span>E-commerce</span> Solutions</h2>
+
+        <p>
+            An e-commerce website serves as a digital storefront, enabling businesses to showcase and sell products or
+            services online. With secure payment gateways, intuitive navigation, and a seamless user experience, it
+            ensures efficient transactions and customer satisfaction. Tailored to your business needs, it drives sales
+            and enhances brand visibility.
+        </p>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="ecommerce-image">
+        {% if ecommerce_section %}
+        <img src="{{ ecommerce_section.image.url }}" alt="Ecommerce Image">
+        {% endif %}
+    </div>
+
+</div>
+<!-- 🔥 PLANS & PRICING -->
+<div class="plan-section">
+    <h2>Plans & Pricing</h2>
+
+    <div class="plan-container">
+
+        {% for plan in plans %}
+        <div class="plan-card">
+
+            <!-- PLAN NAME -->
+            <div class="plan-header">
+                {% if plan.plan_type == 'basic' %}
+                Basic Plan
+                {% elif plan.plan_type == 'standard' %}
+                Standard Plan
+                {% elif plan.plan_type == 'premium' %}
+                Premium Plan
+                {% endif %}
+            </div>
+
+            <!-- PRICE -->
+            <div class="price-circle">
+                ₹{{ plan.price }}
+            </div>
+
+            <!-- FEATURES -->
+            <ul class="plan-features">
+
+                {% if plan.plan_type == 'basic' %}
+                <li>✔ 5 pages Website</li>
+                <li>✔ 1 Year Free Domain Name (.com .in .org)</li>
+                <li>✔ 1 Year Free Hosting (Unlimited Space)</li>
+                <li>✔ Dynamic Website (Premium Design)</li>
+                <li>✔ Admin Access</li>
+                <li>✔ Lifetime 24/7 Free Hosting Support</li>
+                <li>✔ Unlimited Images & Videos Upload</li>
+                <li>✔ Free SSL Certificates</li>
+                <li>✔ 5 Free Email Id</li>
+                <li>✔ SEO Friendly Website</li>
+                <li>✔ 100% Responsive Website</li>
+                <li>✔ Live Chat Integration</li>
+                <li>✔ Payment Gateway Integration</li>
+                <li>✔ Social Media Integration</li>
+                <li>✔ Call Button Integration</li>
+                <li>✔ WhatsApp Button Integration</li>
+                <li>✔ Inquiry Form</li>
+                {% endif %}
+
+                {% if plan.plan_type == 'standard' %}
+                <li>✔ 10 pages Website</li>
+                <li>✔ 1 Year Free Domain Name (.com .in .org)</li>
+                <li>✔ 1 Year Free Hosting (Unlimited Space)</li>
+                <li>✔ Dynamic Website (Premium Design)</li>
+                <li>✔ Admin Access</li>
+                <li>✔ Lifetime 24/7 Free Hosting Support</li>
+                <li>✔ Unlimited Images & Videos Upload</li>
+                <li>✔ Free SSL Certificates</li>
+                <li>✔ 5 Free Email Id</li>
+                <li>✔ SEO Friendly Website</li>
+                <li>✔ 100% Responsive Website</li>
+                <li>✔ Live Chat Integration</li>
+                <li>✔ Payment Gateway Integration</li>
+                <li>✔ Social Media Integration</li>
+                <li>✔ Call Button Integration</li>
+                <li>✔ WhatsApp Button Integration</li>
+                <li>✔ Inquiry Form</li>
+                {% endif %}
+
+                {% if plan.plan_type == 'premium' %}
+                <li>✔ 15 pages Website</li>
+                <li>✔ 1 Year Free Domain Name (.com .in .org)</li>
+                <li>✔ 1 Year Free Hosting (Unlimited Space)</li>
+                <li>✔ Dynamic Website (Premium Design)</li>
+                <li>✔ Admin Access</li>
+                <li>✔ Lifetime 24/7 Free Hosting Support</li>
+                <li>✔ Unlimited Images & Videos Upload</li>
+                <li>✔ Free SSL Certificates</li>
+                <li>✔ 5 Free Email Id</li>
+                <li>✔ SEO Friendly Website</li>
+                <li>✔ 100% Responsive Website</li>
+                <li>✔ Live Chat Integration</li>
+                <li>✔ Payment Gateway Integration</li>
+                <li>✔ Social Media Integration</li>
+                <li>✔ Call Button Integration</li>
+                <li>✔ WhatsApp Button Integration</li>
+                <li>✔ Inquiry Form</li>
+                {% endif %}
+
+            </ul>
+
+            <!-- BUTTON -->
+            <div style="text-align:center;">
+                <a href="#" class="plan-btn">Book Now</a>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,697 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* Digital Marketing Section Styles */
+    .digital-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .digital-text {
+        width: 50%;
+    }
+
+    .digital-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .highlight {
+        color: #007BFF;
+    }
+
+    .digital-text p {
+        font-size: 17px;
+        color: #555;
+    }
+
+    .digital-image {
+        width: 50%;
+    }
+
+    .digital-image img {
+        width: 80%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* SEO Section Styles */
+    .seo-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .seo-image {
+        width: 50%;
+    }
+
+    .seo-image img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    .seo-text {
+        width: 50%;
+    }
+
+    .seo-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .seo-text .highlight {
+        color: #1e63ff;
+    }
+
+    .seo-text p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    /* SOCIAL MEDIA SECTION */
+    .social-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .social-text {
+        width: 50%;
+    }
+
+    .social-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .social-text .highlight {
+        color: #007BFF;
+    }
+
+    .social-text p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .social-image {
+        width: 50%;
+    }
+
+    .social-image img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    /* CONTENT CREATION SECTION */
+    .content-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .content-image {
+        width: 50%;
+    }
+
+    .content-image img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    .content-text {
+        width: 50%;
+    }
+
+    .content-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .content-text .highlight {
+        color: #007BFF;
+    }
+
+    .content-text p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    /* STRATEGY PLAN SECTION */
+    .strategy-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .strategy-text {
+        width: 50%;
+    }
+
+    .strategy-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .strategy-text .highlight {
+        color: #007BFF;
+    }
+
+    .strategy-text p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .strategy-image {
+        width: 50%;
+    }
+
+    .strategy-image img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    /* GOOGLE ANALYTICS SECTION */
+    .analytics-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .analytics-image {
+        width: 50%;
+    }
+
+    .analytics-image img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    .analytics-text {
+        width: 50%;
+    }
+
+    .analytics-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .analytics-text .highlight {
+        color: #007BFF;
+    }
+
+    .analytics-text p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    /* EMAIL MARKETING SECTION */
+    .email-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .email-text {
+        width: 50%;
+    }
+
+    .email-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .email-text .highlight {
+        color: #007BFF;
+    }
+
+    .email-text p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .email-image {
+        width: 50%;
+    }
+
+    .email-image img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    /* VIDEO MARKETING SECTION */
+    .video-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .video-image {
+        width: 50%;
+    }
+
+    .video-image img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    .video-text {
+        width: 50%;
+    }
+
+    .video-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .video-text .highlight {
+        color: #007BFF;
+    }
+
+    .video-text p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    /* GOOGLE ADS SECTION */
+    .ads-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .ads-text {
+        width: 50%;
+    }
+
+    .ads-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .ads-text .highlight {
+        color: #007BFF;
+    }
+
+    .ads-text p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .ads-image {
+        width: 50%;
+    }
+
+    .ads-image img {
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    /* PLAN & PRICING SECTION */
+    .plan-section {
+        padding: 60px 50px;
+        text-align: center;
+    }
+
+    .plan-section h2 {
+        font-size: 32px;
+        margin-bottom: 50px;
+    }
+
+    .plan-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .plan-card {
+        width: 300px;
+        background: #d5dceb;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 30px;
+        transition: 0.3s;
+    }
+
+    .plan-card:hover {
+        transform: translateY(-8px);
+    }
+
+    /* TOP CURVE */
+    .plan-header {
+        background: #1e63ff;
+        height: 140px;
+        border-bottom-left-radius: 150px;
+        border-bottom-right-radius: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    /* PRICE */
+    .price-circle {
+        width: 90px;
+        height: 90px;
+        background: #79c4d3;
+        border-radius: 50%;
+        position: absolute;
+        top: 95px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    /* FEATURES */
+    .plan-features {
+        margin-top: 70px;
+        text-align: left;
+        padding: 0 30px;
+    }
+
+    .plan-features li {
+        margin: 10px 0;
+        list-style: none;
+    }
+
+    /* BUTTON */
+    .plan-btn {
+        margin-top: 20px;
+        display: inline-block;
+        background: #1e63ff;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+    }
+</style>
+
+<div class="digital-section">
+
+    <!-- LEFT TEXT -->
+    <div class="digital-text">
+        <h2>
+            <span class="highlight">Digital</span> Marketing
+        </h2>
+        <p>
+            Vetri It Systems excels in providing all types of digital marketing services. As a leading company in this
+            field, we focus on enhancing the online presence of businesses and brands. We offer the best digital
+            marketing services in Tirunelveli/Tenkasi, covering areas such as SEO, SMO, SMM, PPC, Google ads, and more.
+            Our expert team is skilled in digital marketing strategies and knows how to improve your brand's visibility
+            and value.
+        </p>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="digital-image">
+        <img src="{{ data.image.url }}" alt="Digital Marketing">
+    </div>
+
+</div>
+
+<!-- SEO SECTION -->
+<div class="seo-section">
+
+    <!-- LEFT IMAGE -->
+    <div class="seo-image">
+        {% if seo_image %}
+        <img src="{{ seo_image.image.url }}" alt="SEO Image">
+        {% endif %}
+    </div>
+
+    <!-- RIGHT TEXT (STATIC) -->
+    <div class="seo-text">
+        <h2>
+            <span class="highlight">Search Engine</span> Optimization
+        </h2>
+        <p>
+            Digital media strategy and planning services focus on creating a roadmap to effectively utilize online
+            channels and platforms to achieve business goals. These services include audience research, platform
+            selection, content strategy, paid media planning, and performance analytics.
+        </p>
+    </div>
+</div>
+<!-- SOCIAL MEDIA SECTION -->
+<div class="social-section">
+
+    <!-- LEFT TEXT (STATIC) -->
+    <div class="social-text">
+        <h2>
+            <span class="highlight">Social Media</span> Marketing
+        </h2>
+        <p>
+            Social media management involves creating, scheduling, analyzing, and engaging with content across platforms
+            like Facebook, Instagram, Linkedin, and Twitter to build a strong online presence. These services help
+            businesses connect with their audience, drive engagement, and achieve marketing goals. From crafting
+            compelling posts to running targeted ad campaigns, expert social media managers ensure your brand stays
+            relevant, visible, and impactful in the digital space.
+        </p>
+    </div>
+
+    <!-- RIGHT IMAGE (FROM ADMIN) -->
+    <div class="social-image">
+        {% if social_image %}
+        <img src="{{ social_image.image.url }}" alt="Social Media Marketing">
+        {% endif %}
+    </div>
+
+</div>
+<!-- CONTENT CREATION SECTION -->
+<div class="content-section">
+
+    <!-- LEFT IMAGE -->
+    <div class="content-image">
+        {% if content_image %}
+        <img src="{{ content_image.image.url }}" alt="Content Creation">
+        {% endif %}
+    </div>
+
+    <!-- RIGHT TEXT -->
+    <div class="content-text">
+        <h2>
+            <span class="highlight">Content</span> Creation
+        </h2>
+        <p>
+            These services include blog writing, social media posts, website copy, video production, graphic design, and
+            more. By aligning content with brand goals and audience preferences, they help drive traffic, boost
+            engagement, and establish a strong online presence. Whether for marketing campaigns, educational materials,
+            or storytelling, professional content creation ensures impactful and consistent messaging across platforms.
+        </p>
+    </div>
+
+</div>
+<!-- STRATEGY PLAN SECTION -->
+<div class="strategy-section">
+
+    <!-- LEFT TEXT -->
+    <div class="strategy-text">
+        <h2>
+            <span class="highlight">Strategy</span> Planning
+        </h2>
+        <p>
+            Digital media strategy and planning services focus on creating a roadmap to effectively utilize online
+            channels and platforms to achieve business goals. These services include audience research, platform
+            selection, content strategy, paid media planning, and performance analytics.
+        </p>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="strategy-image">
+        {% if strategy_image %}
+        <img src="{{ strategy_image.image.url }}" alt="Strategy Planning">
+        {% endif %}
+    </div>
+
+</div>
+<!-- GOOGLE ANALYTICS SECTION -->
+<div class="analytics-section">
+
+    <!-- LEFT IMAGE -->
+    <div class="analytics-image">
+        {% if google_image %}
+        <img src="{{ google_image.image.url }}" alt="Google Analytics">
+        {% endif %}
+    </div>
+
+    <!-- RIGHT TEXT -->
+    <div class="analytics-text">
+        <h2>
+            <span class="highlight">Google</span> Analytics
+        </h2>
+        <p>
+            It offers insights into visitor demographics, sources, behavior, and conversions, helping businesses
+            optimize their online presence and marketing strategies. With features like real-time reporting,
+            customizable dashboards, and integration with other Google tools like Ads and Search Console, Google
+            Analytics enables data-driven decision-making for better audience engagement and ROl.
+        </p>
+    </div>
+</div>
+<!-- EMAIL MARKETING SECTION -->
+<div class="email-section">
+
+    <!-- LEFT TEXT -->
+    <div class="email-text">
+        <h2>
+            <span class="highlight">Email</span> Marketing
+        </h2>
+        <p>
+            These platforms offer tools for designing professional emails, automating messages, managing subscriber
+            lists, and tracking performance metrics like open and click-through rates. They enable businesses to nurture
+            leads. promote products, and build lasting customer relationships efficiently. Popular email marketing
+            services include features like A/B testing, segmentation, and integrations with other tools, ensuring
+            campaigns are effective and scalable. Video Marketing
+        </p>
+    </div>
+
+    <!-- RIGHT IMAGE (FROM ADMIN) -->
+    <div class="email-image">
+        {% if email_image %}
+        <img src="{{ email_image.image.url }}" alt="Email Marketing">
+        {% endif %}
+    </div>
+
+</div>
+<!-- VIDEO MARKETING SECTION -->
+<div class="video-section">
+
+    <!-- LEFT IMAGE (FROM ADMIN) -->
+    <div class="video-image">
+        {% if video_image %}
+        <img src="{{ video_image.image.url }}" alt="Video Marketing">
+        {% endif %}
+    </div>
+
+    <!-- RIGHT TEXT -->
+    <div class="video-text">
+        <h2>
+            <span class="highlight">Video</span> Marketing
+        </h2>
+        <p>
+            Video marketing services help businesses create engaging, high-quality video content to promote their brand,
+            products, or services. From concept development and scriptwriting to production and distribution, these
+            services leverage storytelling visual appeal, and targeted strategies to captivate audiences. Whether
+            through social media, websites, or email campaigns, video marketing boosts engagement, drives conversions,
+            and builds stronger connections with customers.
+        </p>
+    </div>
+</div>
+<!-- GOOGLE ADS SECTION -->
+<div class="ads-section">
+
+    <!-- LEFT TEXT -->
+    <div class="ads-text">
+        <h2>
+            <span class="highlight">Google</span> Ads
+        </h2>
+        <p>
+            Google Ad Grants is a program designed to help nonprofit organizations amplify their impact by providing
+            free advertising on Google Search. This service enables nonprofits to raise awareness, attract donors, and
+            recruit volunteers by utilizing Google Ads' powerful tools and targeting capabilities.
+        </p>
+    </div>
+
+    <!-- RIGHT IMAGE (FROM ADMIN) -->
+    <div class="ads-image">
+        {% if ads_image %}
+        <img src="{{ ads_image.image.url }}" alt="Google Ads">
+        {% endif %}
+    </div>
+</div>
+
+<!-- 🔥 PLANS & PRICING -->
+<div class="plan-section">
+    <h2>Plans & Pricing</h2>
+
+    <div class="plan-container">
+
+        {% for plan in plans %}
+        <div class="plan-card">
+
+            <!-- PLAN NAME -->
+            <div class="plan-header">
+                {% if plan.plan_type == 'basic' %}
+                Basic Plan
+                {% elif plan.plan_type == 'standard' %}
+                Standard Plan
+                {% elif plan.plan_type == 'premium' %}
+                Premium Plan
+                {% endif %}
+            </div>
+
+            <!-- PRICE -->
+            <div class="price-circle">
+                ₹{{ plan.price }}
+            </div>
+
+            <!-- FEATURES -->
+            <ul class="plan-features">
+
+                {% if plan.plan_type == 'basic' %}
+                <li>✔ Logo Design</li>
+                <li>✔ Business Card Design</li>
+                <li>✔ Content Creation</li>
+                <li>✔ 2 Digital Business Brochure</li>
+                <li>✔ 7 Social Media Posters</li>
+                {% endif %}
+
+                {% if plan.plan_type == 'standard' %}
+                <li>✔ Logo Design</li>
+                <li>✔ Business Card Design</li>
+                <li>✔ Content Creation</li>
+                <li>✔ 2 Digital Business Brochure</li>
+                <li>✔ 10 Social Media Posters</li>
+                <li>✔ 2 Social Media Videos</li>
+                {% endif %}
+
+                {% if plan.plan_type == 'premium' %}
+                <li>✔ Logo Design</li>
+                <li>✔ Business Card Design</li>
+                <li>✔ Content Creation</li>
+                <li>✔ 2 Flyer Design</li>
+                <li>✔ 5 Digital Business Brochure</li>
+                <li>✔ 15 Social Media Posters</li>
+                <li>✔ 5 Social Media Videos</li>
+                {% endif %}
+
+            </ul>
+
+            <!-- BUTTON -->
+            <div style="text-align:center;">
+                <a href="#" class="plan-btn">Book Now</a>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}

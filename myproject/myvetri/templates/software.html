@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .software-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .software-text {
+        width: 50%;
+    }
+
+    .software-text h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .software-text .highlight {
+        color: #007BFF;
+    }
+
+    .software-text p {
+        font-size: 17px;
+        color: #555;
+    }
+
+    .software-image {
+        width: 50%;
+    }
+
+    .software-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+</style>
+
+<!-- SOFTWARE DEVELOPMENT SECTION -->
+<div class="software-section">
+
+    <!-- LEFT SIDE TEXT -->
+    <div class="software-text">
+        <h2>
+            <span class="highlight">Software</span> Development
+        </h2>
+        <p>
+            Software Development Services involve designing, creating, deploying, and maintaining software applications
+            tailored to meet specific business needs. These services cover a range of offerings, including custom
+            application development, software consulting, system integration, cloud solutions, and mobile or web app
+            development.They enable businesses to optimize processes, improve efficiency, and deliver seamless user
+            experiences by leveraging cutting-edge technologies and agile methodologies. A focus on scalability,
+            security, and innovation ensures that the solutions align with evolving market demands and organizational
+            goals.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE (FROM ADMIN) -->
+    <div class="software-image">
+        {% if software_data %}
+        <img src="{{ software_data.image.url }}" alt="Software Image">
+        {% else %}
+        <p>No image uploaded</p>
+        {% endif %}
+    </div>
+
+</div>
+
+<!-- NATIVE APP DEVELOPMENT SECTION -->
+<div class="software-section">
+
+    <!-- LEFT SIDE IMAGE -->
+    <div class="software-image">
+        {% if native_data %}
+        <img src="{{ native_data.image.url }}" alt="Native App Image">
+        {% else %}
+        <p>No image uploaded</p>
+        {% endif %}
+    </div>
+
+    <!-- RIGHT SIDE TEXT -->
+    <div class="software-text">
+        <h2>
+            <span class="highlight">Native</span> App Development
+        </h2>
+        <p>
+            Native App Development focuses on building high-performance mobile applications
+            specifically for platforms like Android and iOS. These apps provide better speed,
+            enhanced user experience, and seamless integration with device features such as
+            camera, GPS, and notifications. Native apps ensure reliability, scalability, and
+            superior performance tailored to platform-specific standards.
+        </p>
+    </div>
+
+</div>
+
+<!-- HYBRID APP DEVELOPMENT SECTION -->
+<div class="software-section">
+
+    <!-- LEFT SIDE TEXT -->
+    <div class="software-text">
+        <h2>
+            <span class="highlight">Hybrid</span> App Development
+        </h2>
+        <p>
+            Our hybrid app development services combine the power of web and native technologies to deliver
+            high-performance mobile apps that work seamlessly across both Android and iOS platforms. We use modern
+            frameworks like Flutter and React Native to create cost-effective, scalable, and feature-rich applications,
+            helping businesses reach a wider audience with a single codebase.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE (FROM ADMIN) -->
+    <div class="software-image">
+        {% if hybrid_data %}
+        <img src="{{ hybrid_data.image.url }}" alt="Hybrid App Image">
+        {% else %}
+        <p>No image uploaded</p>
+        {% endif %}
+    </div>
+
+</div>
+
+<!-- PROGRESSIVE WEB APP DEVELOPMENT SECTION -->
+<div class="software-section">
+
+    <!-- LEFT SIDE IMAGE (FROM ADMIN) -->
+    <div class="software-image">
+        {% if pwa_data %}
+        <img src="{{ pwa_data.image.url }}" alt="PWA Image">
+        {% else %}
+        <p>No image uploaded</p>
+        {% endif %}
+    </div>
+
+    <!-- RIGHT SIDE TEXT -->
+    <div class="software-text">
+        <h2>
+            <span class="highlight">Progressive Web</span> App Development
+        </h2>
+        <p>
+            Our Progressive Web App development services deliver fast, reliable, and engaging web experiences that work
+            seamlessly across all devices. PWAs combine the best of web and mobile apps, offering offline access, push
+            notifications, and app-like performance-without the need for an app store. We build PWAs that enhance user
+            engagement and boost performance while reducing development costs.
+        </p>
+    </div>
+</div>
+<!-- WEARABLE & EMBEDDED SOFTWARE DEVELOPMENT SECTION -->
+<div class="software-section">
+
+    <!-- LEFT SIDE TEXT -->
+    <div class="software-text">
+        <h2>
+            <span class="highlight">Wearable & Embedded</span> Software
+        </h2>
+        <p>
+            We specialize in developing smart, efficient software solutions for wearable devices and embedded systems.
+            Our services cover everything from fitness trackers and smartwatches to loT devices and industrial
+            controllers. With a focus on low power consumption, real-time performance, and seamless connectivity, we
+            create custom firmware and applications that integrate perfectly with hardware to deliver intuitive,
+            data-driven user experiences.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE (FROM ADMIN) -->
+    <div class="software-image">
+        {% if wearable_data %}
+        <img src="{{ wearable_data.image.url }}" alt="Wearable Software Image"
+            style="width:85%; max-height:400px; object-fit:contain;">
+        {% else %}
+        <p>No image uploaded</p>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>My Vetri Site</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f5f7fb;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #333;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 18px;
+            padding-bottom: 5px;
+        }
+
+        /* HOVER EFFECT */
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: #2563eb;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* ACTIVE LINK */
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* 🔥 HOME PAGE HERO SECTION */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 80px;
+            margin: 0;
+        }
+
+        .hero-left {
+            max-width: 50%;
+        }
+
+        .hero-left h1 {
+            font-size: 40px;
+            line-height: 1.4;
+        }
+
+        .hero-left h1 span {
+            color: #2563eb;
+        }
+
+        .hero-left p {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .stats div {
+            text-align: center;
+        }
+
+        .stats h3 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .stats p {
+            margin: 0;
+            color: #777;
+        }
+
+        .hero-btn {
+            margin-top: 25px;
+        }
+
+        .hero-btn a {
+            background: #2563eb;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .hero-right img {
+            width: 500px;
+        }
+
+        /* 🔥 WHY SECTION */
+        .why-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 120px;
+            /* space left & right */
+            background: #fff;
+            margin: 0;
+        }
+
+        .why-left img {
+            width: 500px;
+        }
+
+        .why-right {
+            max-width: 50%;
+        }
+
+        .why-right h2 {
+            font-size: 34px;
+            line-height: 1.4;
+        }
+
+        .why-right h2 span {
+            color: #2563eb;
+        }
+
+        .why-list {
+            margin-top: 25px;
+        }
+
+        .why-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .why-item img {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+        }
+
+        .why-item p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        /* 🔥HOME PAGE WORK PROCESS */
+        .work-section {
+            text-align: center;
+            padding: 80px 120px;
+            background: #ffffff;
+            margin: 0;
+        }
+
+        .work-section h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+            color: #2563eb;
+        }
+
+        .work-section p {
+            font-size: 18px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .work-image img {
+            width: 550px;
+            max-width: 150%;
+        }
+
+        /* 🔥 TESTIMONIAL SECTION */
+        .testimonial-section {
+            padding: 80px 120px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .testimonial-section h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-section h2 span {
+            color: #2563eb;
+        }
+
+        .testimonial-section p {
+            font-size: 18px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* GRID */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* CARD */
+        .testimonial-card {
+            background: #dfe6f1;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial-card::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: #2563eb;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* USER */
+        .user {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .user img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .user h4 {
+            margin-left: 10px;
+        }
+
+        /* TEXT */
+        .testimonial-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        /* STARS */
+        .stars {
+            color: gold;
+            font-size: 18px;
+        }
+
+        /* 🔥 PROJECT SECTION */
+        .project-section {
+            padding: 80px 120px;
+            background: #ffffff;
+            text-align: center;
+            margin: 0;
+        }
+
+        .project-section h2 {
+            font-size: 34px;
+            margin-bottom: 40px;
+        }
+
+        .project-section h2 span {
+            color: #2563eb;
+        }
+
+        /* GRID */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* CARD */
+        .project-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .project-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .faq-section {
+            padding: 50px;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-section p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .faq {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: #2563eb;
+            ;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .faq-question {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .faq-question .icon {
+            position: absolute;
+            right: 20px;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 6px;
+            border-top: 1px solid #eee;
+            color: #fff;
+        }
+
+        /* FOOTER STYLES */
+        .footer-main {
+            background: #1e5be0;
+            color: white;
+            padding: 50px 80px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        /* LOGO */
+        .footer-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* HEADINGS */
+        .footer-col h4 {
+            margin-bottom: 15px;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* LINKS */
+        .footer-col a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            text-decoration: underline;
+        }
+
+        /* CONTACT TEXT */
+        .footer-col p {
+            margin: 8px 0;
+        }
+
+        /* ICONS */
+        .footer-col i {
+            margin-right: 8px;
+        }
+
+        /* SOCIAL */
+        .social-icons i {
+            font-size: 21px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .social-icons i:hover {
+            color: #ffd700;
+        }
+
+        /* ==============================
+              ABOUT US PAGE STYLES
+           ============================== */
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* LEFT TEXT */
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* RIGHT IMAGE */
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 10px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ABOUTUS PAGE VISION MISSION SECTION */
+        .vm-container {
+            display: flex;
+            gap: 40px;
+            padding: 60px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .vm-card {
+            background: #bed0e3;
+            padding: 40px 25px;
+            border-radius: 15px;
+            text-align: center;
+            width: 450px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* TOP ICON */
+        .vm-icon {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e63ff;
+            padding: 11px;
+            border-radius: 50%;
+        }
+
+        .vm-icon img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        /* TEXT */
+        .vm-card h2 {
+            margin-top: 40px;
+            font-size: 24px;
+        }
+
+        .vm-card h2 span {
+            color: #1e63ff;
+        }
+
+        .vm-card p {
+            margin-top: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .vm-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* 🔥 ENQUIRY BUTTON Overlay */
+        .enquiry-btn {
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .enquiry-btn:hover {
+            background: #0b5ed7;
+        }
+
+        /* 🔥 MODAL BACKGROUND */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* 🔥 MODAL BOX */
+        .modal-content {
+            background: #fff;
+            width: 400px;
+            margin: 80px auto;
+            padding: 25px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        /* CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* FORM STYLING */
+        .modal-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #0d6efd;
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+        }
+
+        .input-box input,
+        .input-box textarea,
+        .input-box select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        /* BUTTON */
+        .quote-btn {
+            width: 100%;
+            padding: 10px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .quote-btn:hover {
+            background: #0b5ed7;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: block;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔥 NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            {% if logo %}
+            <img src="{{ logo.image.url }}" alt="Logo">
+            {% else %}
+            <h2 style="color:white;">MySite</h2>
+            {% endif %}
+        </div>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+
+            <a href="{% url 'aboutus' %}" class="{% if request.path == '/aboutus/' %}active{% endif %}">
+                About Us
+            </a>
+
+            <a href="{% url 'web' %}" class="{% if request.path == '/web/' %}active{% endif %}">
+                Web Development
+            </a>
+
+            <a href="{% url 'software' %}" class="{% if request.path == '/software/' %}active{% endif %}">
+                Software Development
+            </a>
+
+            <!-- NEW DIGITAL PAGE -->
+            <a href="{% url 'digital' %}" class="{% if request.path == '/digital/' %}active{% endif %}">
+                Digital Marketing
+            </a>
+            <!-- 🔥 ENQUIRY BUTTON -->
+            <button class="enquiry-btn" onclick="openModal()">Enquiry</button>
+        </div>
+
+    </div>
+    <!-- 🔥 ENQUIRY MODAL -->
+    <div id="enquiryModal" class="modal">
+        <div class="modal-content">
+
+            <!-- CLOSE BUTTON -->
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+
+            <h2>Quick <span class="highlight">Enquiry</span></h2>
+
+            <form id="enquiryForm" onsubmit="return validateForm()">
+
+                <div class="input-box">
+                    <input type="text" id="name" placeholder="Enter Name">
+                    <small class="error" id="nameError"></small>
+                </div>
+
+                <div class="input-box">
+                    <input type="email" id="email" placeholder="Enter Email Address">
+                    <small class="error" id="emailError"></small>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" id="mobile" placeholder="Enter Mobile Number">
+                    <small class="error" id="mobileError"></small>
+                </div>
+
+                <div class="input-box">
+                    <textarea id="message" placeholder="Send a Message"></textarea>
+                    <small class="error" id="messageError"></small>
+                </div>
+
+                <div class="input-box">
+                    <select id="service">
+                        <option>Select a Service</option>
+                        <option>Web Development</option>
+                        <option>Software Development</option>
+                        <option>Digital Marketing</option>
+                    </select>
+                    <small class="error" id="serviceError"></small>
+                </div>
+
+                <button type="submit" class="quote-btn">Get a Quote</button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- 🔥 PAGE CONTENT -->
+    {% block content %}{% endblock %}
+
+    <!-- 🔥 PROFESSIONAL FOOTER -->
+    <div class="footer-main">
+
+        <div class="footer-container">
+
+            <!-- LOGO + NAME -->
+            <div class="footer-col">
+                {% if logo %}
+                <img src="{{ logo.image.url }}" class="footer-logo">
+                {% endif %}
+                <h3>Vetri<br>IT Systems</h3>
+            </div>
+
+            <!-- QUICK LINKS -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Web Development</a>
+                <a href="#">Software Development</a>
+                <a href="#">Digital Marketing</a>
+            </div>
+
+            <!-- CONTACT -->
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p><i class="fa fa-phone"></i> 8438558627, 8438558527</p>
+                <p><i class="fa fa-envelope"></i> business@vetriit.com</p>
+                <p><i class="fa fa-map-marker"></i> VTS & VIS, April's Complex,<br>Shanthi Complex, Surandai.</p>
+            </div>
+
+            <!-- SOCIAL -->
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        /*  FAQ TOGGLE */
+        document.addEventListener("DOMContentLoaded", function () {
+            const questions = document.querySelectorAll(".faq-question");
+
+            questions.forEach(q => {
+                q.addEventListener("click", () => {
+                    const answer = q.nextElementSibling;
+                    const icon = q.querySelector(".icon");
+
+                    if (answer.style.display === "block") {
+                        answer.style.display = "none";
+                        icon.textContent = "+";
+                    } else {
+                        answer.style.display = "block";
+                        icon.textContent = "-";
+                    }
+                });
+            });
+        });
+        /* ENQUIRY MODAL LOGIC */
+        function openModal() {
+            document.getElementById("enquiryModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("enquiryModal").style.display = "none";
+        }
+
+        // Close when clicking outside
+        window.onclick = function (event) {
+            let modal = document.getElementById("enquiryModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        // VALIDATE FORM
+        function validateForm() {
+
+            let isValid = true;
+
+            // GET VALUES
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let mobile = document.getElementById("mobile").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let service = document.getElementById("service").value;
+
+            // CLEAR OLD ERRORS
+            document.querySelectorAll(".error").forEach(e => e.innerText = "");
+
+            // NAME
+            if (name === "") {
+                document.getElementById("nameError").innerText = "Name is required";
+                isValid = false;
+            }
+
+            // EMAIL
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email === "") {
+                document.getElementById("emailError").innerText = "Email is required";
+                isValid = false;
+            } else if (!email.match(emailPattern)) {
+                document.getElementById("emailError").innerText = "Enter valid email";
+                isValid = false;
+            }
+
+            // MOBILE
+            let mobilePattern = /^[0-9]{10}$/;
+            if (mobile === "") {
+                document.getElementById("mobileError").innerText = "Mobile number is required";
+                isValid = false;
+            } else if (!mobile.match(mobilePattern)) {
+                document.getElementById("mobileError").innerText = "Enter valid 10-digit number";
+                isValid = false;
+            }
+
+            // MESSAGE
+            if (message === "") {
+                document.getElementById("messageError").innerText = "Message is required";
+                isValid = false;
+            }
+
+            // SERVICE
+            if (service === "") {
+                document.getElementById("serviceError").innerText = "Please select a service";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+
+</html>
