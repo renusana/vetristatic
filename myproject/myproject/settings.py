@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get(
     "SECRET_KEY", "django-insecure-simple-demo-key-change-in-production"
 )
-DEBUG = False
+DEBUG = True
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
